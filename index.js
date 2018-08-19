@@ -32,36 +32,36 @@ module.exports = function sockaddr(string, options = {}) {
         return {
             host: '::',
             port: parseInt(string)
-        }
+        };
     }
 
     let match;
-    if (match = /^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(?::([0-9]+))?$/.exec(string)) {
+    if ((match = /^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(?::([0-9]+))?$/.exec(string))) {
         return {
             host: match[1],
             port: match[2] !== undefined ? parseInt(match[2]) : defaultPort
-        }
+        };
     }
 
-    if (match = /^\[([0-9a-fA-F:]+)\](?::([0-9]+))?$/.exec(string)) {
+    if ((match = /^\[([0-9a-fA-F:]+)\](?::([0-9]+))?$/.exec(string))) {
         return {
             host: match[1].toLowerCase(),
             port: match[2] !== undefined ? parseInt(match[2]) : defaultPort
-        }
+        };
     }
 
-    if (match = /^([a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9]))*)(?::([0-9]+))?$/.exec(string)) {
+    if ((match = /^([a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9]))*)(?::([0-9]+))?$/.exec(string))) {
         return {
             host: match[1].toLowerCase(),
             port: match[2] !== undefined ? parseInt(match[2]) : defaultPort
-        }
+        };
     }
 
     if (string.indexOf('/') >= 0) {
         return {
             path: string
-        }
+        };
     }
 
     throw new Error('Invalid socket address ' + string);
-}
+};
