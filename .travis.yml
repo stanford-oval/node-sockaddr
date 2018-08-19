@@ -1,6 +1,6 @@
 language: node_js
 node_js:
- - "6"
+- '6'
 before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
@@ -8,3 +8,11 @@ script:
 - yarn lint
 - yarn test
 after_success: yarn run coverage
+deploy:
+  provider: npm
+  email: gcampagn@cs.stanford.edu
+  api_key:
+    secure: hGjLSi//h5ysmtYnDjVNQGc/EFXyUqaSTIpOmtiUFtwl7aOsEkIqQZUQ7dxZsXU2OC7LSWq23jwvUaAodnjbk01a21YB/ZGtzh82ymQCxQb65UXF0T9QPhMrTfNCVoh2EZnp+zYyLIP9uS7eKFAkOLyMWlIniNUHrfWpPhC6lSB3KkSjbV04vbUtwnVkQmJWz/o3LO31aBFeYqDfwRZqRSEv6I8LEPP7DjlvVYez/wp1srKhcMusmULW+lSnClEf/2hph2YGYRWLMcwhrG37vbHgEjNneEgz5zLLQVXrwkeQJue9Lpgf3tQGHQJ87bnVwfwCLtLiM1eG9P4RES9RFxrKhk6AjMuIjUna4fJh43YTAgeQg2uIU+ddiUsd1SzAXR0rkAyJhYjWzONlFz0b8tYKtaB4R2nmLAgKwGr8CGW4EEdx3INYF18rLszi0xleJdhEVkeVc8eL9KR8ay3u/d3Hk/x6cLMIdiXeSmB/VFofQA2+NRSXgj9cB/MZfZIbVErK4gCMSSwGB6OCNT+e/q4Extwh55UgZYJdn8e7h6ftI+tK9ro2z6z40gXVYj9mwNRFqokw7OiDO0t5o2ycobEvhB2yaujtHx502dOhvp+EzrZPyd/hqBVGiwdLrh5NmbbXXL4Yul1dT1DE89xA8bjSY/YI6OB8j97KgdeGlcE=
+  on:
+    tags: true
+    repo: gcampax/node-sockaddr
