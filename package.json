@@ -1,6 +1,6 @@
 {
   "name": "sockaddr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse a string into a socket address (valid to pass to net.Socket)",
   "main": "index.js",
   "repository": "https://github.com/gcampax/node-sockaddr",
